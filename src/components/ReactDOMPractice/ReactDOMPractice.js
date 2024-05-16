@@ -1,46 +1,64 @@
-import React, {useEffect} from 'react';
-import { ReactDomPracticeWrapper } from './ReactDOMPractice.styled';
+import React from 'react';
+import {ReactDomPracticeWrapper} from './ReactDOMPractice.styled';
+import ReactDOM from 'react-dom/client';
+import {jsx} from "react/jsx-runtime";
 
 const ReactDomPractice = () => {
 
-    //useEffect so it will only render once
-    useEffect(() => {
-        const h1 = document.createElement("h1");
-        h1.innerText = "Hello guys";
-        h1.id = "h1";
-        h1.className = "heading";
-        h1.title = "Hello";
-        document.body.appendChild(h1);
-        return () => {
-            // Cleanup function to remove the h1 element when the component unmounts
-            document.body.removeChild(h1);
-        };
-    }, []);
-
     //React approaching
-    const elementTwo = React.createElement("p", {
-        title:"p", className:"paragraph", id:"guess"
-    }, "Hello guys 2!")
-    console.log(elementTwo);
+    // const elementTwo = React.createElement("p", {
+    //     title: "p", className: "paragraph", id: "guess"
+    // }, "Hello guys 2!")
+    // console.log(elementTwo);
+    //
+    // //React approaching
+    // const list = React.createElement("ul", {
+    //         id: "list"
+    //     }, React.createElement("li", null, "Javascript"),
+    //     React.createElement("li", {}, "ReactJS"));
+    //
+    // const container = document.createElement('div');
+    // document.body.appendChild(container); // add div to the body
+    // ReactDOM.createRoot(container).render(list);
+    //
+    // const value = 'React'
+    // const ul = <ul className="courseList">
+    //     <li style={{font: "15px",}}>Ab</li>
+    //     <li>{value}</li>
+    // </ul>
 
-    const ul = document.createElement("ul");
-    const li = document.createElement("li");
-    li.innerText = "Javascript";
+    const courses=[
+        {
+            name: "HTML, CSS"
+        },
+        {
+            name: 'React'
+        },
+        {
+            name: 'Java'
+        }
+    ]
 
-    const li2 = document.createElement("li");
-    li2.innerText = "ReactJS";
+    const Jsx = (
+        <ul className="courseList">
+            {
+                courses.map((course, i) => {
+                    console.log(course.name)
+                    return <li key={i}>{course.name}</li>
+                    }
+                )
+            }
+        </ul>
+    )
+    // const root = document.getElementById('div');
+    // document.body.appendChild(root);
+    // ReactDOM.createRoot(root).render(Jsx);
 
-    // ul.appendChild(li).appendChild(li2);
-    // document.body.append(ul);
-
-    //React approaching
-    const reactList = React.createElement("ul", {
-        id: "reactList"
-    }, React.createElement("li", null, "Javascript"),
-        React.createElement("li", null, "ReactJS"));
-
-    const root = document.getElementById("root")
-    // root.appendChild(reactList);
+    console.log(Jsx);
+    // const list = <ul className="courseList">
+    //     <li style= {{font:"15px",}} >Ab</li>
+    //     <li>{value}</li>
+    // </ul>
 
     return (
         <ReactDomPracticeWrapper>

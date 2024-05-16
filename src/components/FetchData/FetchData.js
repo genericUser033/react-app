@@ -7,8 +7,6 @@ const FetchData = () => {
  const [data, setData] = useState(null);
  const openUrl = "https://jsonplaceholder.typicode.com/users";
  const newArray = array.map(value => value = value - 3);
- const [color, setColor] = useState(333);
-
  console.log(...newArray);
 
  useEffect(() => {
