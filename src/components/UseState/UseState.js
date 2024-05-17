@@ -15,8 +15,6 @@ const UseState = () => {
         <div>
             <button type="button" onClick={
                 (event) => {
-                    console.log(event.target)
-                    console.log(event)
                     updateColor();
                     showInput();
                 }

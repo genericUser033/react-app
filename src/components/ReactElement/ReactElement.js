@@ -1,6 +1,6 @@
-import {Image} from './ReactElement.styled';
 import CourseItem from "../CourseItem/CourseItem";
 
+//Container
 const ReactElement = () => {
     const data = [
         {
@@ -113,10 +113,18 @@ const ReactElement = () => {
         }
     ];
 
+    const handleClick = ({course}) => {
+        alert(course.title);
+    };
+
     return (
         data.map((course) =>  {
             return (
-                <CourseItem {...course} key={course.id} />
+                <CourseItem
+                    course = {course}
+                    key={course.id}
+                    onClick = {handleClick}
+                />
             )
         })
     )
